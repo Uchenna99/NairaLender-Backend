@@ -3,6 +3,9 @@ import { LoginDTO } from "../../dto/login.dto";
 import { comparePassword } from "../../utils/password.utils";
 import { AuthServices } from "../authServices";
 import jwt from "jsonwebtoken"
+import dotenv from "dotenv"
+
+dotenv.config();
 
 
 

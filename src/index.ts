@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 import userRouter from "./routes/user.routes";
 import loanRouter from "./routes/loan.routes";
+import authRouter from "./routes/auth.routes";
 
 dotenv.config();
 
@@ -37,6 +38,8 @@ app.use(express.json());
 app.use('/api/v1/user', userRouter);
 
 app.use('/api/v1/loan', loanRouter);
+
+app.use('/api/v1/auth', authRouter);
 
 
 
