@@ -1,6 +1,8 @@
 import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
+import userRouter from "./routes/user.routes";
+import loanRouter from "./routes/loan.routes";
 
 dotenv.config();
 
@@ -32,4 +34,15 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use('/api/v1/user');
+app.use('/api/v1/user', userRouter);
+
+app.use('/api/v1/loan', loanRouter);
+
+
+
+app.listen(PORT, ()=>{
+    console.log(`Server is running on Port: ${PORT}`)
+});
+
+
+export default app;
