@@ -18,6 +18,11 @@ enum Role {
   ADMIN
 }
 
+enum AccountType {
+  Savings
+  Current
+}
+
 model user {
   id          String        @id @unique @default(cuid())
   firstName   String
@@ -43,4 +48,19 @@ model PaymentCard {
   expiry      String
   user        user   @relation(fields: [userId], references: [id])
   userId      String
+}
+
+model BankAccount {
+  id            String      @id @unique @default(cuid())
+  bankName      String
+  accountNumber String
+  accountType   AccountType
+}
+
+model Loan {
+  id        String   @id @unique @default(cuid())
+  amount    Int
+  duration  Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
