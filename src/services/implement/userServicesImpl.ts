@@ -1,0 +1,51 @@
+import { user, PaymentCard, BankAccount } from "@prisma/client";
+import { CreateBankAccountDTO } from "../../dto/createBankAcc.dto";
+import { createCardDTO } from "../../dto/createCard.dto";
+import { CreateUserDTO } from "../../dto/createUser.dto";
+import { userServices } from "../userService";
+import { db } from "../../config/db";
+
+
+export class UserServicesImpl implements userServices {
+    async createUser(data: CreateUserDTO): Promise<user> {
+        const findUser = await db.user.findUnique({
+            where: {email: data.email}
+        })
+        if(findUser) {
+            throw new Error('Sorry, this email has already been used');
+        }
+        const newUser = await db.user.create({
+            data
+        })
+        return newUser;
+    }
+
+
+    async createPaymentCard(data: createCardDTO): Promise<PaymentCard> {
+        const findCard = await db.paymentCard.findUnique({
+            where: {cardNumber: data.cardNumber}
+        })
+        if(findCard) {
+            throw new Error('Sorry, this card has already been used'); 
+        }
+        const newCard = await db.paymentCard.create({
+            data
+        })
+        return newCard;
+    }
+
+
+    async createBankAccount(data: CreateBankAccountDTO): Promise<BankAccount> {
+        const findAccount = await db.bankAccount.findUnique({
+            where: {accountNumber: data.accountNumber}
+        })
+        if(findAccount) {
+            throw new Error('Sorry, this account number has already been used');
+        }
+        const newAccount = await db.bankAccount.create({
+            data
+        })
+        return newAccount;
+    }
+    
+}
