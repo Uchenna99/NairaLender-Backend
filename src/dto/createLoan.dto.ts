@@ -5,8 +5,11 @@ import { IsNotEmpty, IsString } from "class-validator";
 export class createLoanDTO {
     @IsNotEmpty()
     @IsString()
-    amount!: string;
+    amount!: number;
 
     @IsNotEmpty()
-    duration!: string;
+    duration!: number;
+
+    @IsNotEmpty()
+    monthlyPayment!: number;
 }
