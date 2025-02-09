@@ -4,6 +4,7 @@ import { createCardDTO } from "../../dto/createCard.dto";
 import { CreateUserDTO } from "../../dto/createUser.dto";
 import { userServices } from "../userService";
 import { db } from "../../config/db";
+import { hashPassword } from "../../utils/password.utils";
 
 
 export class UserServicesImpl implements userServices {
@@ -15,7 +16,13 @@ export class UserServicesImpl implements userServices {
             throw new Error('Sorry, this email has already been used');
         }
         const newUser = await db.user.create({
-            data
+            data:{
+                firstName: data.firstName,
+                lastName: data.lastName,
+                phone: data.phone,
+                email: data.email,
+                password: await hashPassword(data.password)
+            }
         })
         return newUser;
     }
