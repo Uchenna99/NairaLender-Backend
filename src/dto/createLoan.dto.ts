@@ -12,4 +12,8 @@ export class createLoanDTO {
 
     @IsNotEmpty()
     monthlyPayment!: number;
+
+    @IsNotEmpty()
+    @IsString()
+    userId!: string;
 }

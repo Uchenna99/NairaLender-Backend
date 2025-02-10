@@ -49,6 +49,12 @@ export class UserServicesImpl implements userServices {
         if(findAccount) {
             throw new Error('Sorry, this account number has already been used');
         }
+        const findUser = await db.user.findUnique({
+            where: {id: data.userId}
+        })
+        if(!findUser) {
+            throw new Error('User not found');
+        }
         const newAccount = await db.bankAccount.create({
             data
         })

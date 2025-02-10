@@ -38,6 +38,8 @@ model user {
   paymentCard PaymentCard[]
   createdAt   DateTime      @default(now())
   updatedAt   DateTime      @updatedAt
+  BankAccount BankAccount[]
+  Loan        Loan[]
 }
 
 model PaymentCard {
@@ -55,6 +57,8 @@ model BankAccount {
   bankName      String
   accountNumber String      @unique
   accountType   AccountType
+  user          user        @relation(fields: [userId], references: [id])
+  userId        String
 }
 
 model Loan {
@@ -62,6 +66,8 @@ model Loan {
   amount         Int
   duration       Int
   monthlyPayment Int
+  user           user     @relation(fields: [userId], references: [id])
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
+  userId         String
 }

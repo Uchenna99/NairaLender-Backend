@@ -41,6 +41,7 @@ CREATE TABLE "BankAccount" (
     "bankName" TEXT NOT NULL,
     "accountNumber" TEXT NOT NULL,
     "accountType" "AccountType" NOT NULL,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "BankAccount_pkey" PRIMARY KEY ("id")
 );
@@ -50,8 +51,10 @@ CREATE TABLE "Loan" (
     "id" TEXT NOT NULL,
     "amount" INTEGER NOT NULL,
     "duration" INTEGER NOT NULL,
+    "monthlyPayment" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
+    "userId" TEXT NOT NULL,
 
     CONSTRAINT "Loan_pkey" PRIMARY KEY ("id")
 );
@@ -66,10 +69,22 @@ CREATE UNIQUE INDEX "user_email_key" ON "user"("email");
 CREATE UNIQUE INDEX "PaymentCard_id_key" ON "PaymentCard"("id");
 
 -- CreateIndex
+CREATE UNIQUE INDEX "PaymentCard_cardNumber_key" ON "PaymentCard"("cardNumber");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "BankAccount_id_key" ON "BankAccount"("id");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "BankAccount_accountNumber_key" ON "BankAccount"("accountNumber");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Loan_id_key" ON "Loan"("id");
 
 -- AddForeignKey
 ALTER TABLE "PaymentCard" ADD CONSTRAINT "PaymentCard_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "BankAccount" ADD CONSTRAINT "BankAccount_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Loan" ADD CONSTRAINT "Loan_userId_fkey" FOREIGN KEY ("userId") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

@@ -51,8 +51,8 @@ export class UserController {
     ): Promise<void>=>{
         try {
             const data = req.body as CreateBankAccountDTO;
-            const newAccount = await this.userServices.createBankAccount(data);
-            res.status(201).json(newAccount);
+            await this.userServices.createBankAccount(data);
+            res.status(201).json({message: 'Bank account added successfully'});
         } catch (error) {
             next(error);
         }
