@@ -25,4 +25,19 @@ export class LoanController {
             next(error);
         }
     }
+
+
+    public getLoanById = async (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<void>=>{
+        try {
+            const id = req.params.id
+            const loanArray = await this.loanServices.getLoanById(id);
+            res.status(200).json(loanArray);
+        } catch (error) {
+            next(error);
+        }
+    }
 }

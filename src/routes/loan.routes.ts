@@ -8,6 +8,7 @@ const loanController = new LoanController();
 
 loanRouter.post('/new-loan', loanController.createLoan);
 
+loanRouter.get('/get-loans/:id', loanController.getLoanById);
 
 
 

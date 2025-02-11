@@ -21,8 +21,8 @@ export class UserController {
     ): Promise<void>=>{
         try {
             const data = req.body as CreateUserDTO;
-            const newUser = await this.userServices.createUser(data);
-            res.status(201).json(newUser);
+            await this.userServices.createUser(data);
+            res.status(201).json({message: 'New user created successfully'});
         } catch (error) {
             next(error);
         }

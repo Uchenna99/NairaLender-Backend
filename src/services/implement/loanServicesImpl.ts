@@ -17,5 +17,16 @@ export class LoanServicesImpl implements loanServices {
         })
         return newLoan;
     }
+
+
+    async getLoanById(id: string): Promise<Loan[]> {
+        const getLoans = await db.loan.findMany({
+            where: {userId: id}
+        })
+        if(!getLoans) {
+            throw new Error('No loans attached to this user')
+        }
+        return getLoans;
+    }
     
 }
