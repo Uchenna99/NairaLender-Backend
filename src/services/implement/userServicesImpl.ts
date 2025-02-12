@@ -41,7 +41,7 @@ export class UserServicesImpl implements userServices {
         return newCard;
     }
 
-
+    
     async createBankAccount(data: CreateBankAccountDTO): Promise<BankAccount> {
         const findAccount = await db.bankAccount.findUnique({
             where: {accountNumber: data.accountNumber}
@@ -59,6 +59,14 @@ export class UserServicesImpl implements userServices {
             data
         })
         return newAccount;
+    }
+
+
+    async getBankAccounts(userId: string): Promise<BankAccount[] | null> {
+        const getAccounts = await db.bankAccount.findMany({
+            where: {userId}
+        });
+        return getAccounts;
     }
     
 }

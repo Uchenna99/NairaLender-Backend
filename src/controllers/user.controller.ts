@@ -57,4 +57,19 @@ export class UserController {
             next(error);
         }
     }
+
+
+    public getBankAccounts = async (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<void>=>{
+        try {
+            const id = req.params.id;
+            const accounts = await this.userServices.getBankAccounts(id);
+            res.status(200).json(accounts);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
