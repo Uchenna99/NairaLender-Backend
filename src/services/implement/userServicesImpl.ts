@@ -26,8 +26,8 @@ export class UserServicesImpl implements userServices {
         })
         return newUser;
     }
-
-
+    
+    
     async createPaymentCard(data: createCardDTO): Promise<PaymentCard> {
         const findCard = await db.paymentCard.findUnique({
             where: {cardNumber: data.cardNumber}
@@ -40,7 +40,7 @@ export class UserServicesImpl implements userServices {
         })
         return newCard;
     }
-
+    
     
     async createBankAccount(data: CreateBankAccountDTO): Promise<BankAccount> {
         const findAccount = await db.bankAccount.findUnique({
@@ -61,18 +61,28 @@ export class UserServicesImpl implements userServices {
         return newAccount;
     }
     
-
+    
     async getBankAccounts(userId: string): Promise<BankAccount[] | null> {
         const getAccounts = await db.bankAccount.findMany({
             where: {userId}
         });
         return getAccounts;
     }
-
-
+    
+    
     async getBanksList(): Promise<Banks[]> {
-        const banksList = await db.banks.findMany({});
+        const banksList = await db.banks.findMany({
+            orderBy: {name: 'asc'}
+        });
         return banksList;
+    }
+
+
+    async getPaymentCards(userId: string): Promise<PaymentCard[] | null> {
+        const cards = await db.paymentCard.findMany({
+            where: {userId}
+        });
+        return cards;
     }
     
 }

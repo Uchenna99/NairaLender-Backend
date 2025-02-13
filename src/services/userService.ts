@@ -9,5 +9,6 @@ export interface userServices {
     createPaymentCard (data: createCardDTO): Promise<PaymentCard>;
     createBankAccount (data: CreateBankAccountDTO): Promise<BankAccount>;
     getBankAccounts (userId: string): Promise<BankAccount[]|null>;
-    getBanksList (): Promise<Banks[]>
+    getBanksList (): Promise<Banks[]>;
+    getPaymentCards (userId: string): Promise<PaymentCard[]|null>
 }

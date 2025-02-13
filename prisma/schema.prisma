@@ -59,6 +59,7 @@ model BankAccount {
   accountType   AccountType
   user          user        @relation(fields: [userId], references: [id])
   userId        String
+  image         String?
 }
 
 model Loan {

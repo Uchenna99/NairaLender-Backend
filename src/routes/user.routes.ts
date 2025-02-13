@@ -16,6 +16,8 @@ userRouter.get('/get-bank-accounts/:id', userConroller.getBankAccounts);
 
 userRouter.get('/get-banks-list', userConroller.getBanksList);
 
+userRouter.get('/get-cards-list', userConroller.getPaymentCards);
+
 
 
 export default userRouter;

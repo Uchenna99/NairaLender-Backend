@@ -16,4 +16,8 @@ export class CreateBankAccountDTO {
         @IsNotEmpty()
         @IsString()
         userId!: string
+
+        @IsNotEmpty()
+        @IsString()
+        image!: string;
 }

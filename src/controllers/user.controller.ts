@@ -86,4 +86,19 @@ export class UserController {
             next(error);
         }
     }
+
+
+    public getPaymentCards = async (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<void>=>{
+        try {
+            const id = req.params.id;
+            const cards = await this.userServices.getPaymentCards(id);
+            res.status(200).json(cards);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
