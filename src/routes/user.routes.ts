@@ -14,6 +14,8 @@ userRouter.post('/new-bank-account', userConroller.createBankAccount);
 
 userRouter.get('/get-bank-accounts/:id', userConroller.getBankAccounts);
 
+userRouter.get('/get-banks-list', userConroller.getBanksList);
+
 
 
 export default userRouter;

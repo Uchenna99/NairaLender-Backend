@@ -1,4 +1,4 @@
-import { user, PaymentCard, BankAccount } from "@prisma/client";
+import { user, PaymentCard, BankAccount, Banks } from "@prisma/client";
 import { CreateBankAccountDTO } from "../../dto/createBankAcc.dto";
 import { createCardDTO } from "../../dto/createCard.dto";
 import { CreateUserDTO } from "../../dto/createUser.dto";
@@ -60,13 +60,19 @@ export class UserServicesImpl implements userServices {
         })
         return newAccount;
     }
-
+    
 
     async getBankAccounts(userId: string): Promise<BankAccount[] | null> {
         const getAccounts = await db.bankAccount.findMany({
             where: {userId}
         });
         return getAccounts;
+    }
+
+
+    async getBanksList(): Promise<Banks[]> {
+        const banksList = await db.banks.findMany({});
+        return banksList;
     }
     
 }

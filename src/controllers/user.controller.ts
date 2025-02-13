@@ -72,4 +72,18 @@ export class UserController {
             next(error);
         }
     }
+
+
+    public getBanksList = async (
+        req: Request,
+        res: Response,
+        next: NextFunction
+    ): Promise<void>=>{
+        try {
+            const banksList = await this.userServices.getBanksList();
+            res.status(200).json(banksList);
+        } catch (error) {
+            next(error);
+        }
+    }
 }
