@@ -71,3 +71,9 @@ model Loan {
   updatedAt      DateTime @updatedAt
   userId         String
 }
+
+model Banks {
+  id    Int    @id @unique @default(autoincrement())
+  name  String @unique
+  image String
+}

@@ -1,0 +1,42 @@
+[
+    {
+        "name": "First Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739402951/first-bank-nigeria.512x512_d3eisj.png"      
+    },
+    {
+        "name": "Access Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739403202/access-bank-plc.512x128_yr0gnb.png"
+    },
+    {
+        "name": "FCMB (First City Monument Bank)",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739403239/first-city-monument-bank-ltd.512x512_v67qiv.png"
+    },
+    {
+        "name": "Wema Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739402002/wema-bank.512x287_p0r6qe.png"
+    },
+    {
+        "name": "Kuda Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739402001/kuda-bank.512x115_yxx8cy.png"
+    },
+    {
+        "name": "Fidelity Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739401999/fidelity-bank-nigeria.437x512_evoeat.png"
+    },
+    {
+        "name": "Polaris Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739401999/polaris-bank.512x512_jix1zi.png"
+    },
+    {
+        "name": "Sterling Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739401998/sterling-bank-plc.512x422_dxhex4.png"
+    },
+    {
+        "name": "UBA (United Bank for Africa)",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739401998/united-bank-for-africa.512x232_ojrvo0.png"
+    },
+    {
+        "name": "Zenith Bank",
+        "image": "https://res.cloudinary.com/df6xz7bqp/image/upload/c_thumb,w_200,g_face/v1739401730/zenith-bank.484x512_uz2ejv.png"
+    }
+]
