@@ -5,6 +5,8 @@ import { CreateUserDTO } from "../../dto/createUser.dto";
 import { userServices } from "../userService";
 import { db } from "../../config/db";
 import { hashPassword } from "../../utils/password.utils";
+import { CustomError } from "../../utils/customError.utils";
+import { StatusCodes } from "http-status-codes";
 
 
 export class UserServicesImpl implements userServices {
@@ -13,7 +15,7 @@ export class UserServicesImpl implements userServices {
             where: {email: data.email}
         })
         if(findUser) {
-            throw new Error('Sorry, this email has already been used');
+            throw new CustomError(StatusCodes.CONFLICT , 'Sorry, this email has already been used');
         }
         const newUser = await db.user.create({
             data:{

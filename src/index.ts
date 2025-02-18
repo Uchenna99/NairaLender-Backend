@@ -4,6 +4,7 @@ import cors from "cors"
 import userRouter from "./routes/user.routes";
 import loanRouter from "./routes/loan.routes";
 import authRouter from "./routes/auth.routes";
+import { errorHandler } from "./utils/errorHandler.utils";
 
 dotenv.config();
 
@@ -34,6 +35,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.use(express.json());
+
+app.use(errorHandler);
 
 app.use('/api/v1/user', userRouter);
 
