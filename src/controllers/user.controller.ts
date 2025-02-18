@@ -24,7 +24,7 @@ export class UserController {
             await this.userServices.createUser(data);
             res.status(201).json({message: 'New user created successfully'});
         } catch (error: any) {
-            next(error);
+            next(error.message);
         }
     }
 
