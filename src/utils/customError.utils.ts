@@ -5,5 +5,6 @@ export class CustomError extends Error {
         super(message);
         this.statusCode = statusCode;
         this.name = this.constructor.name;
+        this.message = message
     }
 }

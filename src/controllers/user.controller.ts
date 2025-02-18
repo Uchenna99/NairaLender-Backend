@@ -23,8 +23,8 @@ export class UserController {
             const data = req.body as CreateUserDTO;
             await this.userServices.createUser(data);
             res.status(201).json({message: 'New user created successfully'});
-        } catch (error) {
-            next(res.json({error}));
+        } catch (error: any) {
+            next(res.json({error: error.message}));
         }
     }
 
