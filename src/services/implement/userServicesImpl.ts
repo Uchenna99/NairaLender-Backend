@@ -15,7 +15,7 @@ export class UserServicesImpl implements userServices {
             where: {email: data.email}
         })
         if(findUser) {
-            throw new CustomError(StatusCodes.CONFLICT , 'Sorry, this email has already been used');
+            throw new CustomError(409, "Sorry, this email has already been used");
         }
         const newUser = await db.user.create({
             data:{
