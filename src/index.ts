@@ -36,8 +36,6 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.use(errorHandler);
-
 app.use('/api/v1/user', userRouter);
 
 app.use('/api/v1/loan', loanRouter);
@@ -45,6 +43,7 @@ app.use('/api/v1/loan', loanRouter);
 app.use('/api/v1/auth', authRouter);
 
 
+app.use(errorHandler);
 
 app.listen(PORT, ()=>{
     console.log(`Server is running on Port: ${PORT}`)
