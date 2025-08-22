@@ -50,9 +50,5 @@ app.use('/api/v1/auth', authRouter);
 
 app.use(errorHandler);
 
-app.listen(PORT, ()=>{
-    console.log(`Server is running on Port: ${PORT}`)
-});
-
 
 export default app;
