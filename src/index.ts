@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express"
+import express from "express"
 import dotenv from "dotenv"
 import cors from "cors"
 import userRouter from "./routes/user.routes";
@@ -37,7 +37,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
+app.get("/", (req: express.Request, res: express.Response) => {
   res.send("Welcome to the backend server");
 });
 
