@@ -25,10 +25,13 @@ if(isNaN(PORT)){
 const app = express();
 
 const corsOptions = {
-    origin: "*",
+    origin: [
+        "http://localhost:5173",            // your dev frontend
+        "https://nairalender.vercel.app"   // your production frontend
+    ],
+    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
-    allowedHeaders: "*",
-    methods: "GET, HEAD, PUT, PATCH, POST, DELETE"
 }
 
 
