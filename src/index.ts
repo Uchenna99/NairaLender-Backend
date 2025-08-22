@@ -29,8 +29,6 @@ const corsOptions = {
         "http://localhost:5173",            // your dev frontend
         "https://nairalender.vercel.app"   // your production frontend
     ],
-    methods: ["GET", "HEAD", "PUT", "PATCH", "POST", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
 }
 
