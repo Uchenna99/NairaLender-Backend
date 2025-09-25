@@ -29,7 +29,7 @@ const corsOptions = {
     origin: [
         "http://localhost:5173",            // your dev frontend
         "https://nairalender.vercel.app",   // your production frontend
-        "https://naira-lender-backend.vercel.app"
+        "https://my-portfolio-uchenna-agbu.vercel.app"
     ],
     credentials: true,
 }
